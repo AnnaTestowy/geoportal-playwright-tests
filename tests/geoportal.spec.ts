@@ -21,3 +21,10 @@ test('link BDOT10k prowadzi do strony bazy', async ({ page }) => {
 
   await expect(page.getByRole('heading', { name: 'Baza danych obiektów topograficznych (BDOT10k)' })).toBeVisible();
 });
+
+test('link Dane jest widoczny na stronie głównej', async ({ page }) => {
+  const home = new HomePage(page);
+  await home.open();
+
+  await expect(page.getByRole('link', { name: 'Dane', exact: true })).toBeVisible();
+});
